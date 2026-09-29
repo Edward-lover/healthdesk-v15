@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Book Appointment - HealthDesk</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2e8b57">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="HealthDesk">
+
+</head>
+
+<body>
+
+    <!-- HEALTHDESK HEADER -->
+
+    <header class="top-header">
+
+        <div class="header-logo">
+            <img src="icon-192.png" alt="HealthDesk Logo">
+        </div>
+
+        <div class="header-title">
+            <h1>HEALTHDESK</h1>
+            <p>School Clinic</p>
+        </div>
+
+        <button id="installBtn" class="install-btn">
+            📱 Download App
+        </button>
+
+    </header>
+
+
+    <!-- NAVIGATION -->
+
+    <nav class="page-nav">
+
+        <a href="dashboard.html">
+            Home
+        </a>
+
+        <a href="appointment.html">
+            Book Appointment
+        </a>
+
+        <a href="appointments.html">
+            My Appointments
+        </a>
+
+        <button id="logoutBtn">
+            Log Out
+        </button>
+
+    </nav>
+
+
+    <main class="form-container">
+
+        <div class="form-card">
+
+            <h1>
+                Book a Clinic Appointment
+            </h1>
+
+            <p>
+                Fill out the information below to request
+                an appointment with the school clinic.
+            </p>
+
+
+            <form id="appointmentForm">
+
+
+                <label for="studentName">
+                    Student Name
+                </label>
+
+                <input
+                    type="text"
+                    id="studentName"
+                    placeholder="Enter your name"
+                    required
+                >
+
+
+                <label for="studentId">
+                    Student ID
+                </label>
+
+                <input
+                    type="text"
+                    id="studentId"
+                    placeholder="Enter your student ID"
+                    required
+                >
+
+
+                <label for="appointmentDate">
+                    Appointment Date
+                </label>
+
+                <input
+                    type="date"
+                    id="appointmentDate"
+                    required
+                >
+
+
+                <label for="appointmentTime">
+                    Preferred Time
+                </label>
+
+                <input
+                    type="time"
+                    id="appointmentTime"
+                    required
+                >
+
+
+                <label for="reason">
+                    Reason for Visit
+                </label>
+
+                <select id="reason" required>
+
+                    <option value="">
+                        Select a reason
+                    </option>
+
+                    <option value="Medical Consultation">
+                        Medical Consultation
+                    </option>
+
+                    <option value="First Aid">
+                        First Aid
+                    </option>
+
+                    <option value="Follow-up">
+                        Follow-up
+                    </option>
+
+                    <option value="Health Concern">
+                        Health Concern
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+
+
+                <label for="notes">
+                    Additional Notes
+                </label>
+
+                <textarea
+                    id="notes"
+                    rows="4"
+                    placeholder="Optional information"
+                ></textarea>
+
+
+                <button
+                    type="submit"
+                    class="btn primary-btn full-width">
+
+                    Request Appointment
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+
+    <script>
+
+        if ("serviceWorker" in navigator) {
+
+            window.addEventListener("load", () => {
+
+                navigator.serviceWorker.register("./service-worker.js");
+
+            });
+
+        }
+
+    </script>
+
+</body>
+
+</html>

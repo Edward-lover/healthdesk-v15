@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard - HealthDesk</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2e8b57">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="HealthDesk">
+
+</head>
+
+<body>
+
+    <!-- HEALTHDESK HEADER -->
+
+    <header class="top-header">
+
+        <div class="header-logo">
+            <img src="icon-192.png" alt="HealthDesk Logo">
+        </div>
+
+        <div class="header-title">
+            <h1>HEALTHDESK</h1>
+            <p>Clinic Administrator</p>
+        </div>
+
+        <button id="installBtn" class="install-btn">
+            📱 Download App
+        </button>
+
+    </header>
+
+
+    <!-- ADMIN NAVIGATION -->
+
+    <nav class="page-nav">
+
+        <a href="admin.html">
+            Dashboard
+        </a>
+
+        <button id="adminLogoutBtn">
+            Log Out
+        </button>
+
+    </nav>
+
+
+    <main class="dashboard">
+
+        <!-- WELCOME -->
+
+        <section class="welcome-section">
+
+            <h1>
+                Clinic Dashboard 🏥
+            </h1>
+
+            <p>
+                Manage student clinic appointments.
+            </p>
+
+        </section>
+
+
+        <!-- STATISTICS -->
+
+        <section class="stats-container">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    📅
+                </div>
+
+                <div>
+
+                    <h3>
+                        Total
+                    </h3>
+
+                    <strong id="adminTotal">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    ⏳
+                </div>
+
+                <div>
+
+                    <h3>
+                        Pending
+                    </h3>
+
+                    <strong id="adminPending">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    ✅
+                </div>
+
+                <div>
+
+                    <h3>
+                        Approved
+                    </h3>
+
+                    <strong id="adminApproved">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- APPOINTMENTS -->
+
+        <section class="next-appointment">
+
+            <div class="section-title">
+
+                <h2>
+                    Student Appointments
+                </h2>
+
+            </div>
+
+
+            <div id="adminAppointments">
+
+                <div class="empty-dashboard">
+
+                    <span>
+                        📋
+                    </span>
+
+                    <p>
+                        No appointments yet.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+
+    <script>
+
+        if ("serviceWorker" in navigator) {
+
+            window.addEventListener("load", () => {
+
+                navigator.serviceWorker.register("./service-worker.js");
+
+            });
+
+        }
+
+    </script>
+
+</body>
+
+</html>

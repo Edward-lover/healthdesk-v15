@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HealthDesk</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+
+    <meta name="theme-color" content="#2e8b57">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="HealthDesk">
+
+</head>
+
+<body>
+
+    <!-- HEALTHDESK HEADER -->
+    <header class="top-header">
+
+        <!-- LEFT: LOGO -->
+        <div class="header-logo">
+            <img src="icon-192.png" alt="HealthDesk Logo">
+        </div>
+
+        <!-- CENTER: HEALTHDESK -->
+        <div class="header-title">
+            <h1>HEALTHDESK</h1>
+            <p>School Clinic</p>
+        </div>
+
+        <!-- RIGHT: DOWNLOAD -->
+        <button id="installBtn" class="install-btn">
+            📱 Download App
+        </button>
+
+    </header>
+
+
+    <!-- LOGIN / SIGN UP -->
+    <main class="auth-container">
+
+        <div class="auth-card">
+
+            <div class="medical-icon">
+                🩺
+            </div>
+
+            <h1>HealthDesk</h1>
+
+            <p class="auth-subtitle">
+                School Clinic Appointment System
+            </p>
+
+
+            <!-- LOGIN -->
+
+            <div id="loginSection">
+
+                <h2>Welcome Back</h2>
+
+                <p class="form-description">
+                    Login to manage your clinic appointments.
+                </p>
+
+                <form id="loginForm">
+
+                    <label for="loginEmail">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="loginEmail"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                    <label for="loginPassword">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+                    <button
+                        type="submit"
+                        class="btn primary-btn full-width">
+                        Login
+                    </button>
+
+                </form>
+
+                <p class="switch-text">
+                    Don't have an account?
+
+                    <button
+                        type="button"
+                        id="showSignup">
+                        Sign Up
+                    </button>
+                </p>
+
+            </div>
+
+
+            <!-- SIGN UP -->
+
+            <div id="signupSection" class="hidden">
+
+                <h2>Create Account</h2>
+
+                <p class="form-description">
+                    Create your HealthDesk student account.
+                </p>
+
+                <form id="signupForm">
+
+                    <label for="signupName">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="signupName"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                    <label for="signupStudentId">
+                        Student ID
+                    </label>
+
+                    <input
+                        type="text"
+                        id="signupStudentId"
+                        placeholder="Enter your student ID"
+                        required
+                    >
+
+                    <label for="signupEmail">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="signupEmail"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                    <label for="signupPassword">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="signupPassword"
+                        placeholder="Create a password"
+                        required
+                    >
+
+                    <button
+                        type="submit"
+                        class="btn primary-btn full-width">
+                        Create Account
+                    </button>
+
+                </form>
+
+                <p class="switch-text">
+                    Already have an account?
+
+                    <button
+                        type="button"
+                        id="showLogin">
+                        Login
+                    </button>
+                </p>
+
+                <p class="switch-text">
+                    Clinic Administrator?
+
+                    <a href="admin-login.html">
+                        Admin Login
+                    </a>
+                </p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            HealthDesk © 2026 | School Clinic
+        </p>
+
+    </footer>
+
+
+    <!-- MAIN JAVASCRIPT -->
+
+    <script src="script.js"></script>
+
+
+    <!-- SERVICE WORKER -->
+
+    <script>
+
+        if ("serviceWorker" in navigator) {
+
+            window.addEventListener("load", () => {
+
+                navigator.serviceWorker.register("./service-worker.js")
+
+                    .then(registration => {
+
+                        console.log(
+                            "HealthDesk Service Worker registered:",
+                            registration.scope
+                        );
+
+                    })
+
+                    .catch(error => {
+
+                        console.error(
+                            "HealthDesk Service Worker registration failed:",
+                            error
+                        );
+
+                    });
+
+            });
+
+        }
+
+    </script>
+
+</body>
+
+</html>

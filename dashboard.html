@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - HealthDesk</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2e8b57">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="HealthDesk">
+
+</head>
+
+<body>
+
+    <!-- HEALTHDESK HEADER -->
+
+    <header class="top-header">
+
+        <div class="header-logo">
+            <img src="icon-192.png" alt="HealthDesk Logo">
+        </div>
+
+        <div class="header-title">
+            <h1>HEALTHDESK</h1>
+            <p>School Clinic</p>
+        </div>
+
+        <button id="installBtn" class="install-btn">
+            📱 Download App
+        </button>
+
+    </header>
+
+
+    <!-- NAVIGATION -->
+
+    <nav class="page-nav">
+
+        <a href="dashboard.html">
+            Home
+        </a>
+
+        <a href="appointment.html">
+            Book Appointment
+        </a>
+
+        <a href="appointments.html">
+            My Appointments
+        </a>
+
+        <button id="logoutBtn">
+            Log Out
+        </button>
+
+    </nav>
+
+
+    <main class="dashboard">
+
+        <!-- WELCOME -->
+
+        <section class="welcome-section">
+
+            <h1 id="welcomeMessage">
+                Welcome to HealthDesk 👋
+            </h1>
+
+            <p>
+                Manage your school clinic appointments
+                easily.
+            </p>
+
+        </section>
+
+
+        <!-- STATISTICS -->
+
+        <section class="stats-container">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    📅
+                </div>
+
+                <div>
+
+                    <h3>
+                        Total Appointments
+                    </h3>
+
+                    <strong id="totalAppointments">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    ⏳
+                </div>
+
+                <div>
+
+                    <h3>
+                        Pending
+                    </h3>
+
+                    <strong id="pendingAppointments">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    👤
+                </div>
+
+                <div>
+
+                    <h3>
+                        Student
+                    </h3>
+
+                    <strong id="studentNameDisplay">
+                        Student
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- DASHBOARD CARDS -->
+
+        <section class="dashboard-cards">
+
+            <div class="dashboard-card">
+
+                <div class="card-icon">
+                    📅
+                </div>
+
+                <h2>
+                    Book Appointment
+                </h2>
+
+                <p>
+                    Schedule a visit with the
+                    school clinic.
+                </p>
+
+                <a
+                    href="appointment.html"
+                    class="btn primary-btn">
+
+                    Book Now
+
+                </a>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <div class="card-icon">
+                    📋
+                </div>
+
+                <h2>
+                    My Appointments
+                </h2>
+
+                <p>
+                    View and manage your
+                    clinic appointments.
+                </p>
+
+                <a
+                    href="appointments.html"
+                    class="btn secondary-btn">
+
+                    View Appointments
+
+                </a>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <div class="card-icon">
+                    🏥
+                </div>
+
+                <h2>
+                    School Clinic
+                </h2>
+
+                <p>
+                    Get assistance from the
+                    school clinic.
+                </p>
+
+                <span class="clinic-status">
+                    ● Clinic Available
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- NEXT APPOINTMENT -->
+
+        <section class="next-appointment">
+
+            <div class="section-title">
+
+                <h2>
+                    Next Appointment
+                </h2>
+
+                <a href="appointments.html">
+                    View All
+                </a>
+
+            </div>
+
+
+            <div id="nextAppointment">
+
+                <div class="empty-dashboard">
+
+                    <span>
+                        📅
+                    </span>
+
+                    <p>
+                        You don't have an upcoming
+                        appointment.
+                    </p>
+
+                    <a
+                        href="appointment.html"
+                        class="btn primary-btn">
+
+                        Book Appointment
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CLINIC INFORMATION -->
+
+        <section class="clinic-info">
+
+            <h2>
+                School Clinic Information
+            </h2>
+
+            <p>
+                📍 School Clinic
+            </p>
+
+            <p>
+                🕒 Clinic Hours:
+                Monday - Friday
+            </p>
+
+            <p>
+                🩺 For medical assistance,
+                please visit the school clinic.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+
+    <!-- SERVICE WORKER -->
+
+    <script>
+
+        if ("serviceWorker" in navigator) {
+
+            window.addEventListener("load", () => {
+
+                navigator.serviceWorker.register("./service-worker.js");
+
+            });
+
+        }
+
+    </script>
+
+</body>
+
+</html>
